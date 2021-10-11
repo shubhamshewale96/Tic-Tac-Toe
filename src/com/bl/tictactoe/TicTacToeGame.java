@@ -112,6 +112,32 @@ public class TicTacToeGame {
     public static boolean isEmptyCell(int cellIndex) {
         return gameBoard[cellIndex] == ' ';
     }
+    
+    /**
+     * method of toss for playing who play first
+     */
+    public void tossToPlay() {
+        System.out.println("\nToss .......let's decide who play first......\nCoin flip......\nCoin flip.....\nCoin flip.....\nCoin flip......\n");
+        int switchPlayer = random.nextInt(2);
+        if (switchPlayer == 0) {
+            System.out.println("Player Has Won The Toss ....and Play first");
+            switchPlayer(0);
+        } else {
+            System.out.println("Computer Has Won The Toss ....and Play first");
+            switchPlayer(1);
+        }
+    }
+    /**
+     *switch player as a toss for who playing first
+     */
+    public void switchPlayer(int switchPlayer) {
+        if (switchPlayer == 0) {
+            playerPlaying();
+        } else {
+            computerPlaying();
+        }
+    }
+
 
 	public static void main(String[] args) {
 
@@ -122,5 +148,6 @@ public class TicTacToeGame {
 		ticTacToeMain.showBoard();
 		ticTacToeMain.playerPlaying();
 		ticTacToeMain.computerPlaying();
+		ticTacToeMain.tossToPlay();
 	}
 }
