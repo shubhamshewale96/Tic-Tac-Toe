@@ -7,20 +7,30 @@
  */
 package com.bl.tictactoe;
 
+import java.util.Scanner;
+
 public class TicTacToeGame {
-	public void creationBoard() {
-		char[] board = new char[10];
-		for (int i = 1; i < 10; i++) {
-			board[i] = (char) i;
-			System.out.println(board[i]);
+	/**
+	 * declare 1d array of char type
+	 */
+	static char[] gameBoard = new char[10];
+
+	/**
+	 * method for creating empty GameBoard
+	 */
+	public void createGameBoard() {
+		for (int a = 1; a < gameBoard.length; a++) {
+			gameBoard[a] = ' ';
 		}
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Welcome to TicTocToe Game");
-		TicTacToeGame tictactoe = new TicTacToeGame();
-		tictactoe.creationBoard();
 
+		TicTacToeGame ticTacToeMain = new TicTacToeGame();
+
+		System.out.println("Welcome to TicTacToe Game");
+
+		ticTacToeMain.createGameBoard();
 	}
+
 }
