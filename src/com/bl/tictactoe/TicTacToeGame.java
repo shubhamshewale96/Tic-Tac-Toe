@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToeGame {
-	char[] gameBoard = new char[10]; // declare 1d array of char type
+	static char[] gameBoard = new char[10]; // declare 1d array of char type
 	public char computerLetter;
 	public char playerLetter;
 	Scanner scanner = new Scanner(System.in);
@@ -69,23 +69,48 @@ public class TicTacToeGame {
 	/**
      * method for user move on desired location
      */
-    public void playerPlaying() {
-        System.out.println("\n Player Turn ");
+	public void playerPlaying() {
+        System.out.println("\n>>>>>>>> Player Turn <<<<<<<<");
         showBoard();
-        System.out.print("Enter your position [1-9] -> ");
-        int playerPosition = scanner.nextInt();
-        gameBoard[playerPosition] = playerLetter;
-        showBoard();
+        int kite = 0;
+        while (kite == 0) {
+            System.out.print("Enter your position [1-9] -> ");
+            int playerPosition = scanner.nextInt();
+            if (isEmptyCell(playerPosition)) {
+                gameBoard[playerPosition] = playerLetter;
+                showBoard();
+                kite = 1;
+            } else {
+                System.out.println("\nSpace is not Empty.....plz try in another...\n");
+            }
+        }
     }
 
     /**
      * method for user move on desired location
      */
     public void computerPlaying() {
-        System.out.println("\n Computer Turn \n");
-        int computerPosition = random.nextInt(9) + 1;
-        gameBoard[computerPosition] = computerLetter;
-        showBoard();
+        System.out.println("\n>>>>>>>> Computer Turn <<<<<<<<\n");
+        int cat = 0;
+        while (cat == 0) {
+            int computerPosition = random.nextInt(9) + 1;
+            if (isEmptyCell(computerPosition)) {
+                gameBoard[computerPosition] = computerLetter;
+                showBoard();
+                cat = 1;
+            } else {
+                System.out.println("\nSpace is not Empty.....plz try in another...\n");
+            }
+        }
+    }
+
+    /**
+     * Method for check free space
+     * cellIndex
+     * @return
+     */
+    public static boolean isEmptyCell(int cellIndex) {
+        return gameBoard[cellIndex] == ' ';
     }
 
 	public static void main(String[] args) {
