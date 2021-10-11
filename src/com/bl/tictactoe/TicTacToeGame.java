@@ -10,7 +10,7 @@ package com.bl.tictactoe;
 import java.util.Scanner;
 
 public class TicTacToeGame {
-	char[] gameBoard = new char[10]; //declare 1d array of char type
+	char[] gameBoard = new char[10]; // declare 1d array of char type
 	public char Computerletter;
 	public char Playerletter;
 	Scanner scanner = new Scanner(System.in);
@@ -23,33 +23,45 @@ public class TicTacToeGame {
 			gameBoard[a] = ' ';
 		}
 	}
+
 	/**
-     * method for choose Letter X or O
-     */
+	 * method for choose Letter X or O
+	 */
 	public void selectLetter() {
-        int flag = 0;
-        while (flag == 0) {
-            System.out.print("\n Choose your Letter\n Press 1 -> 'X'\n Press 2 -> 'O'\n Enter your Choice -> ");
-            int choice = scanner.nextInt();
-            switch(choice) {
-            case 1:
-            	Playerletter = 'X';
-                Computerletter = 'O';
-                System.out.println("\n Player letter -> " + Playerletter);
-                System.out.println("Computer letter -> " + Computerletter);
-                flag = 1;
-            	break;
-            case 2:
-            	Playerletter = 'O';
-                Computerletter = 'X';
-                System.out.println("\nPlayer letter -> " + Playerletter);
-                System.out.println("Computer letter -> " + Computerletter);
-                flag = 2;
-                break;
-             default :
-            	 System.out.println("\n plz enter 1 or 2");
-             }
-        }
+		int flag = 0;
+		while (flag == 0) {
+			System.out.print("\n Choose your Letter\n Press 1 -> 'X'\n Press 2 -> 'O'\n Enter your Choice -> ");
+			int choice = scanner.nextInt();
+			switch (choice) {
+			case 1:
+				Playerletter = 'X';
+				Computerletter = 'O';
+				System.out.println("\n Player letter -> " + Playerletter);
+				System.out.println("Computer letter -> " + Computerletter);
+				flag = 1;
+				break;
+			case 2:
+				Playerletter = 'O';
+				Computerletter = 'X';
+				System.out.println("\nPlayer letter -> " + Playerletter);
+				System.out.println("Computer letter -> " + Computerletter);
+				flag = 2;
+				break;
+			default:
+				System.out.println("\n plz enter 1 or 2");
+			}
+		}
+	}
+
+	/**
+	 * method for display Board
+	 */
+	public void showBoard() {
+		System.out.println("  " + gameBoard[1] + " | " + gameBoard[2] + " | " + gameBoard[3] + "  ");
+		System.out.println("----|---|----");
+		System.out.println("  " + gameBoard[4] + " | " + gameBoard[5] + " | " + gameBoard[6] + "  ");
+		System.out.println("----|---|----");
+		System.out.println("  " + gameBoard[7] + " | " + gameBoard[8] + " | " + gameBoard[9] + "  ");
 	}
 
 	public static void main(String[] args) {
@@ -58,5 +70,6 @@ public class TicTacToeGame {
 		System.out.println("Welcome to TicTacToe Game");
 		ticTacToeMain.createGameBoard();
 		ticTacToeMain.selectLetter();
+		ticTacToeMain.showBoard();
 	}
 }
